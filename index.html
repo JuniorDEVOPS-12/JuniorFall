@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahima Junior Fall | Consultant en Automatisation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1A73E8;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 24px;
+        }
+
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background-color: #F2994A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #F2994A;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1A73E8;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: #F2994A;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e68a3d;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(242, 153, 74, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: #1A73E8;
+        }
+
+        .section-bg {
+            background-color: #f8f9fa;
+        }
+
+        .section-blue {
+            background-color: #1A73E8;
+            color: white;
+        }
+
+        .section-blue .section-title {
+            color: white;
+        }
+
+        /* Target Audience */
+        .audience-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .audience-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .audience-card h3 {
+            color: #1A73E8;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .audience-card ul {
+            list-style-position: inside;
+            margin-bottom: 20px;
+        }
+
+        .audience-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Solutions */
+        .solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .solution-card {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .solution-icon {
+            width: 70px;
+            height: 70px;
+            background-color: rgba(26, 115, 232, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #1A73E8;
+            font-size: 28px;
+        }
+
+        .solution-card h3 {
+            color: #1A73E8;
+            margin-bottom: 15px;
+        }
+
+        /* Demos */
+        .demo-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .demo-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .demo-header {
+            background-color: #1A73E8;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .demo-content {
+            padding: 25px;
+        }
+
+        .demo-step {
+            margin-bottom: 20px;
+        }
+
+        .demo-step h4 {
+            color: #F2994A;
+            margin-bottom: 8px;
+        }
+
+        /* Process */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: #F2994A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            font-size: 20px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1A73E8;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: #666;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1A73E8;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-contact a:hover {
+            color: #F2994A;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #1A73E8;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+        .delay-4 { animation-delay: 0.8s; opacity: 0; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-circle">IJF</div>
+                <span>Ibrahima Junior Fall</span>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#audience">Pour qui</a>
+                    <a href="#solutions">Solutions</a>
+                    <a href="#demos">Démonstrations</a>
+                    <a href="#process">Processus</a>
+                    <a href="#cta">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container fade-in">
+            <h1>Automatisez vos ventes et votre business grâce à l'IA et au no-code</h1>
+            <p>J'aide les influenceurs, e-commerçants et entreprises à automatiser leurs ventes, leur service client et leurs processus pour gagner du temps et augmenter leur chiffre d'affaires.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/221777175713?text=Bonjour%20Ibrahima,%20je%20souhaite%20automatiser%20mon%20business" class="btn btn-primary" target="_blank">Automatiser mon business</a>
+                <a href="https://wa.me/221777175713?text=Bonjour%20Ibrahima,%20je%20souhaite%20un%20audit%20gratuit%20pour%20mon%20business" class="btn btn-secondary" target="_blank">Audit gratuit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section "À qui je m'adresse" -->
+    <section id="audience">
+        <div class="container">
+            <h2 class="section-title fade-in">Pour qui sont mes solutions ?</h2>
+            <div class="audience-cards">
+                <div class="audience-card fade-in delay-1">
+                    <h3>Influenceurs & Business en ligne</h3>
+                    <ul>
+                        <li>Dropshipping</li>
+                        <li>E-commerce</li>
+                        <li>Infoproduits</li>
+                        <li>Coaching</li>
+                    </ul>
+                    <p>Vous recevez trop de messages ? Vous perdez des ventes ? Vous répondez encore manuellement ? J'automatise votre tunnel de vente.</p>
+                </div>
+                <div class="audience-card fade-in delay-2">
+                    <h3>Entreprises & PME</h3>
+                    <ul>
+                        <li>Boutiques</li>
+                        <li>Restaurants</li>
+                        <li>Écoles</li>
+                        <li>Cabinets</li>
+                    </ul>
+                    <p>J'automatise votre service client et vos processus pour gagner du temps, réduire les erreurs et améliorer l'expérience client.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section "Mes solutions" -->
+    <section id="solutions" class="section-bg">
+        <div class="container">
+            <h2 class="section-title fade-in">Mes solutions</h2>
+            <div class="solutions">
+                <div class="solution-card fade-in delay-1">
+                    <div class="solution-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Tunnel de vente automatisé</h3>
+                    <p>Instagram → WhatsApp → Paiement → Livraison. Un flux automatisé qui convertit vos prospects en clients sans intervention manuelle.</p>
+                </div>
+                <div class="solution-card fade-in delay-2">
+                    <div class="solution-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>Chatbot vendeur WhatsApp</h3>
+                    <p>Présentation produit, réponse aux questions, relance des paniers abandonnés. Votre vendeur disponible 24h/24.</p>
+                </div>
+                <div class="solution-card fade-in delay-3">
+                    <div class="solution-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Automatisation des commandes</h3>
+                    <p>Formulaire → Facture → Notification → Suivi. Simplifiez la gestion des commandes de A à Z.</p>
+                </div>
+                <div class="solution-card fade-in delay-4">
+                    <div class="solution-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>CRM influenceur</h3>
+                    <p>Base clients, historique d'achats, segmentation, relances automatiques. Gérez votre communauté efficacement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section "Démonstrations / Cas pratiques" -->
+    <section id="demos">
+        <div class="container">
+            <h2 class="section-title fade-in">Démonstrations / Cas pratiques</h2>
+            <div class="demo-cards">
+                <div class="demo-card fade-in delay-1">
+                    <div class="demo-header">
+                        <h3>Tunnel Instagram → WhatsApp → Vente</h3>
+                    </div>
+                    <div class="demo-content">
+                        <div class="demo-step">
+                            <h4>Problème</h4>
+                            <p>Un influenceur perd 70% de ses prospects car il ne répond pas assez vite aux messages Instagram.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Solution</h4>
+                            <p>Mise en place d'un tunnel automatisé qui redirige les prospects vers WhatsApp avec un chatbot pré-qualifiant.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Résultat</h4>
+                            <p>+40% de conversions, réduction du temps de réponse à 2 secondes, gain de 10h/semaine.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-card fade-in delay-2">
+                    <div class="demo-header">
+                        <h3>Chatbot vendeur e-commerce</h3>
+                    </div>
+                    <div class="demo-content">
+                        <div class="demo-step">
+                            <h4>Problème</h4>
+                            <p>Un e-commerçant répond aux mêmes questions (tailles, livraison, retours) des centaines de fois par jour.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Solution</h4>
+                            <p>Chatbot WhatsApp intégré au site e-commerce, capable de répondre aux FAQs et de recommander des produits.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Résultat</h4>
+                            <p>-80% de messages manuels, +25% de ventes via les recommandations automatisées.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-card fade-in delay-3">
+                    <div class="demo-header">
+                        <h3>Commandes automatisées (PME)</h3>
+                    </div>
+                    <div class="demo-content">
+                        <div class="demo-step">
+                            <h4>Problème</h4>
+                            <p>Un restaurant passe 3h/jour à traiter les commandes par téléphone, avec des erreurs fréquentes.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Solution</h4>
+                            <p>Système de commande automatisé via WhatsApp avec génération automatique de facture et notification en cuisine.</p>
+                        </div>
+                        <div class="demo-step">
+                            <h4>Résultat</h4>
+                            <p>Zéro erreur de commande, gain de 15h/semaine, satisfaction client améliorée.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section "Comment je travaille" -->
+    <section id="process" class="section-bg">
+        <div class="container">
+            <h2 class="section-title fade-in">Comment je travaille</h2>
+            <div class="process-steps">
+                <div class="process-step fade-in delay-1">
+                    <div class="step-number">1</div>
+                    <h3>Diagnostic gratuit</h3>
+                    <p>Analyse de votre business et identification des processus à automatiser.</p>
+                </div>
+                <div class="process-step fade-in delay-2">
+                    <div class="step-number">2</div>
+                    <h3>Proposition sur mesure</h3>
+                    <p>Conception d'une automatisation adaptée à vos besoins spécifiques.</p>
+                </div>
+                <div class="process-step fade-in delay-3">
+                    <div class="step-number">3</div>
+                    <h3>Mise en place rapide</h3>
+                    <p>Implémentation de la solution en moins de 7 jours.</p>
+                </div>
+                <div class="process-step fade-in delay-4">
+                    <div class="step-number">4</div>
+                    <h3>Tests & formation</h3>
+                    <p>Validation du système et formation de votre équipe.</p>
+                </div>
+                <div class="process-step fade-in delay-5">
+                    <div class="step-number">5</div>
+                    <h3>Support continu</h3>
+                    <p>Accompagnement après livraison pour assurer le bon fonctionnement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Call-to-Action -->
+    <section id="cta" class="cta-section">
+        <div class="container fade-in">
+            <h2>Tu veux automatiser ton business ?</h2>
+            <p>Gagne du temps. Vends plus. Automatise.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/221777175713?text=Bonjour%20Ibrahima,%20je%20souhaite%20discuter%20de%20l'automatisation%20de%20mon%20business" class="btn btn-primary" target="_blank" style="background-color: #F2994A;">Discuter sur WhatsApp</a>
+                <a href="https://wa.me/221777175713?text=Bonjour%20Ibrahima,%20je%20souhaite%20demander%20un%20audit%20gratuit%20pour%20mon%20business" class="btn btn-secondary" target="_blank" style="border-color: #F2994A; color: #F2994A;">Demander un audit gratuit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <div class="logo-circle">IJF</div>
+                    <span>Ibrahima Junior Fall</span>
+                </div>
+                <div class="footer-contact">
+                    <a href="https://wa.me/221777175713" target="_blank">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Business
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Ibrahima Junior Fall - Consultant en Automatisation. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        // Trigger once on load
+        fadeInOnScroll();
+    </script>
+</body>
+</html>
